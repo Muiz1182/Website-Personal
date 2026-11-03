@@ -1,29 +1,29 @@
-# MMA PRODUCTION &bull; Personal Portfolio &amp; CMS
+# MMA PRODUCTION &bull; Personal Portfolio Website
 
-Website portofolio profesional dan Content Management System (CMS) untuk **Mochammad Muiz Afdloly**, dirancang khusus untuk memamerkan karya dan layanan pada 3 pilar keahlian utama:
+Website portofolio profesional berkinerja tinggi untuk **Mochammad Muiz Afdloly**, dirancang khusus untuk memamerkan karya terkurasi dan layanan terintegrasi pada 3 pilar keahlian utama:
 1. **Videography**: Video Cinematic &amp; Video Podcast berstandar studio.
 2. **Designer**: Desain antarmuka UI/UX (Figma), ilustrasi digital kustom, dan poster komersial/acara.
-3. **Web Developer**: Pengembangan aplikasi web full-stack menggunakan Laravel, Vue.js, PHP, dan JavaScript.
+3. **Web Developer**: Pengembangan aplikasi web modern menggunakan Laravel, Vue.js, PHP, dan JavaScript.
 
 ---
 
 ## Fitur Utama
 
 - **3D Interactive Lanyard Pass (Hero Section)**:
-  - Kartu tanda pengenal interaktif berbasis Three.js &amp; WebGL dengan simulasi fisika dinamis (dapat ditarik, diayunkan, dan berputar).
-  - Tekstur kartu depan dapat diganti secara langsung melalui Panel Admin (mendukung foto potret, kartu ID, atau grafis kustom).
-- **Panel Admin CMS Terintegrasi (`/admin/login`)**:
-  - **Karya Portofolio (Selected Works)**: Tambah, edit, dan hapus proyek portofolio, atur kategori (Videography, Design, Web Developer), upload gambar, serta konfigurasi rasio dan ukuran grid.
-  - **Pilar Keahlian (Capabilities)**: Kelola judul layanan, tagline, deskripsi, dan butir-butir berkas luaran (*deliverables*).
-  - **Profil Kreator**: Perbarui bio, peran profesional, foto profil, dan foto kartu lanyard 3D.
-  - **Ulasan Klien**: Tambah, edit, dan kelola testimoni klien. Bagian ini otomatis menyesuaikan tampilan jika data kosong.
-- **Dukungan Bilingual (ID &bull; EN)**:
-  - Sistem pengalih bahasa instan (Bahasa Indonesia &bull; English) dengan penyimpanan preferensi di sesi browser.
-- **Formulir Pengajuan Proyek &amp; Notifikasi Email**:
-  - Formulir brief komisi proyek dengan validasi lengkap dan perlindungan spam rate-limiting.
-  - Terintegrasi langsung dengan pengiriman email SMTP Gmail secara *real-time*.
+  - Kartu tanda pengenal interaktif berbasis Three.js &amp; WebGL dengan simulasi fisika dinamis (dapat ditarik, diayunkan, dan berputar secara interaktif).
+  - Tampilan visual kartu depan beresolusi tinggi dengan tipografi tajam.
+- **Kurasi Portofolio 3 Pilar Keahlian**:
+  - Filter kategori instan tanpa *reload* (Videography, Design, Web Developer).
+  - Tata letak asimetris dinamis dengan rasio visual sinematik.
+  - Modal detail interaktif untuk melihat ikhtisar proyek dan spesifikasi alat teknis.
+- **Dukungan Bilingual Penuh (ID &bull; EN)**:
+  - Sistem pengalih bahasa instan (Bahasa Indonesia &bull; English) dengan penyimpanan preferensi sesi secara otomatis.
+- **Formulir Pengajuan Proyek**:
+  - Formulir brief kebutuhan proyek terstruktur dengan proteksi validasi ketat dan *rate-limiting*.
+  - Terhubung langsung dengan sistem notifikasi pengiriman pesan otomatis.
 - **Desain &bull; Estetika Sinematik Modern**:
-  - Tema gelap (*dark mode*) elegan dengan palet warna hitam pekat (`#070707`), kartu gelap (`#0E0E10`), aksen oranye sinematik (`#FF5722`), serta kepatuhan standar aksesibilitas kontras WCAG AA.
+  - Tema gelap (*dark mode*) elegan dengan palet warna hitam pekat (`#070707`), kartu gelap (`#0E0E10`), serta aksen oranye sinematik (`#FF5722`).
+  - Memenuhi standar aksesibilitas kontras teks WCAG AA untuk keterbacaan optimal.
 
 ---
 
@@ -57,20 +57,20 @@ git clone https://github.com/Muiz1182/Website-Personal.git
 cd Website-Personal
 ```
 
-### 3. Instal Dependensi PHP &amp; Node
+### 3. Instal Dependensi
 ```bash
 composer install
 npm install
 ```
 
 ### 4. Konfigurasi Lingkungan (.env)
-Salin berkas konfigurasi `.env.example` menjadi `.env`:
+Salin berkas konfigurasi template `.env.example` menjadi `.env`:
 ```bash
 cp .env.example .env
 php artisan key:generate
 ```
 
-Sesuaikan parameter basis data di berkas `.env`:
+Sesuaikan parameter koneksi basis data di berkas `.env`:
 ```env
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -80,27 +80,11 @@ DB_USERNAME=root
 DB_PASSWORD=
 ```
 
-Konfigurasi pengiriman email formulir (menggunakan sandi aplikasi Google):
-```env
-MAIL_MAILER=smtp
-MAIL_HOST=smtp.gmail.com
-MAIL_PORT=587
-MAIL_USERNAME=muiz1182.business@gmail.com
-MAIL_PASSWORD=your-app-password
-MAIL_ENCRYPTION=tls
-MAIL_FROM_ADDRESS="muiz1182.business@gmail.com"
-MAIL_FROM_NAME="MMA PRODUCTION"
-```
-
-### 5. Migrasi &amp; Seeding Database
-Jalankan migrasi tabel CMS dan *seeder* data awal:
+### 5. Migrasi Database
+Jalankan migrasi skema tabel database:
 ```bash
-php artisan migrate --seed --class=AdminCmsSeeder
+php artisan migrate
 ```
-
-*Data bawaan admin yang dibuat oleh seeder:*
-- **Email**: `admin@mmaproduction.com`
-- **Password**: `admin1182`
 
 ### 6. Kompilasi Aset Frontend
 ```bash
@@ -111,9 +95,8 @@ npm run build
 ```bash
 php artisan serve --port=8000
 ```
-Buka browser dan akses:
-- **Website Utama**: `http://localhost:8000`
-- **Panel Admin CMS**: `http://localhost:8000/admin/login`
+Buka browser dan akses alamat:
+`http://localhost:8000`
 
 ---
 
@@ -123,27 +106,23 @@ Buka browser dan akses:
 mma-production/
 ├── app/
 │   ├── Http/Controllers/
-│   │   ├── Admin/               # Kontroler CRUD Panel Admin
-│   │   ├── ContactController.php # Penanganan brief formulir kontak
-│   │   └── LandingController.php # Penanganan halaman depan bilingual
-│   ├── Mail/                    # Mailable notifikasi email pengajuan proyek
-│   └── Models/                  # Eloquent models (Project, Service, CreatorProfile, Testimonial, User)
+│   │   ├── ContactController.php # Penanganan formulir pengajuan proyek
+│   │   └── LandingController.php # Logika tampilan portofolio bilingual
+│   ├── Mail/                    # Mailable notifikasi proyek
+│   └── Models/                  # Eloquent models
 ├── database/
-│   ├── migrations/              # Skema tabel database MySQL
-│   └── seeders/                 # Seeder admin &amp; data awal konten
+│   └── migrations/              # Skema tabel database
 ├── public/
-│   ├── images/                  # Aset SVG &amp; grafis default lanyard
-│   └── uploads/                 # Berkas upload gambar proyek &amp; profil kreator
+│   ├── images/                  # Aset grafis visual
+│   └── uploads/                 # Berkas visual karya &amp; profil
 ├── resources/
-│   ├── css/                     # Konfigurasi Tailwind &amp; styling canvas
-│   ├── js/                      # Script interaktif (lanyard 3D, tech-text, dll.)
+│   ├── css/                     # Styling Tailwind &amp; canvas
+│   ├── js/                      # Script interaktif (lanyard 3D, tech-text)
 │   └── views/
-│       ├── admin/               # Blade templates panel admin
-│       ├── components/          # Komponen Blade (Navbar, Footer, Hero, Works, dll.)
-│       └── welcome.blade.php    # Halaman utama portofolio
+│       ├── components/          # Komponen Blade modular (Navbar, Footer, Hero, dll.)
+│       └── welcome.blade.php    # Tampilan utama portofolio
 └── routes/
-    ├── web.php                  # Rute website &amp; panel admin
-    └── console.php              # Perintah artisan konsol kustom
+    └── web.php                  # Rute website aplikasi
 ```
 
 ---
