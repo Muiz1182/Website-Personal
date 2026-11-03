@@ -1,0 +1,122 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+
+    --color-cinema-bg: #070707;
+    --color-cinema-surface: #0E0E10;
+    --color-cinema-elevated: #151518;
+    --color-cinema-border: #1F1F24;
+    --color-cinema-border-light: #2A2A32;
+
+    --color-cinema-accent: #FF5722;
+    --color-cinema-accent-hover: #F4511E;
+    --color-cinema-accent-glow: rgba(255, 87, 34, 0.15);
+
+    --color-cinema-text: #F5F5F7;
+    --color-cinema-muted: #A1A1AA;
+}
+
+/* Custom Base & Smooth Focus Styles */
+html {
+    color-scheme: dark;
+}
+
+body {
+    background-color: #070707;
+    color: #F5F5F7;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+}
+
+/* Accessible focus ring meeting 3:1 contrast */
+:focus-visible {
+    outline: 2px solid #FF5722;
+    outline-offset: 3px;
+}
+
+/* Film grain effect (CSS only, pure craft) */
+.film-grain {
+    position: relative;
+}
+
+.film-grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Smooth horizontal marquee ticker */
+@keyframes ticker {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+.animate-marquee {
+    display: flex;
+    width: max-content;
+    animation: ticker 28s linear infinite;
+}
+
+.animate-marquee:hover {
+    animation-play-state: paused;
+}
+
+/* Custom Sleek Scrollbar */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: #070707;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1F1F24;
+    border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #33333E;
+}
+
+/* React Bits Lanyard Canvas Styles */
+.lanyard-wrapper {
+    z-index: 0;
+    transform-origin: 50%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: relative;
+}
+
+.lanyard {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    user-select: none;
+}
+
+.lanyard-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+}

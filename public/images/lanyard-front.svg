@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" width="800" height="1200">
+  <defs>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="60%" stop-color="#F7F7F9" />
+      <stop offset="100%" stop-color="#EFEFF3" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF5722" />
+      <stop offset="100%" stop-color="#FF8A65" />
+    </linearGradient>
+  </defs>
+
+  <!-- Card Surface -->
+  <rect width="800" height="1200" rx="44" fill="url(#cardGrad)" stroke="#E0E0E6" stroke-width="4" />
+
+  <!-- Top Header Navigation -->
+  <text x="60" y="80" fill="#71717A" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" letter-spacing="1">Videography</text>
+  <text x="400" y="80" text-anchor="middle" fill="#71717A" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" letter-spacing="1">Designer</text>
+  <text x="740" y="80" text-anchor="end" fill="#18181B" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" letter-spacing="1">Web Developer</text>
+
+  <!-- Minimal Wireframe Line & Accent in Background -->
+  <path d="M 240 280 L 520 280 C 560 280 580 300 580 340 L 580 620" fill="none" stroke="#D4D4D8" stroke-width="2.5" />
+  
+  <!-- Pill Tag: @muizafdloly -->
+  <g transform="translate(60, 310)">
+    <rect width="180" height="42" rx="21" fill="none" stroke="#A1A1AA" stroke-width="2" />
+    <text x="90" y="27" text-anchor="middle" fill="#27272A" font-family="monospace" font-size="16" font-weight="bold">@muizafdloly</text>
+  </g>
+
+  <!-- Left Editorial Headline -->
+  <g transform="translate(60, 400)">
+    <text x="0" y="0" fill="#27272A" font-family="system-ui, sans-serif" font-size="34" font-weight="300" letter-spacing="-0.5">Cinematic</text>
+    <text x="0" y="44" fill="#09090B" font-family="system-ui, sans-serif" font-size="38" font-weight="900" letter-spacing="-1">video, podcast,</text>
+    <text x="0" y="88" fill="#09090B" font-family="system-ui, sans-serif" font-size="38" font-weight="900" letter-spacing="-1">UI/UX &amp; poster,</text>
+    <text x="0" y="130" fill="#27272A" font-family="system-ui, sans-serif" font-size="28" font-weight="400">Laravel, Vue, PHP</text>
+    <text x="0" y="174" fill="#FF5722" font-family="system-ui, sans-serif" font-size="38" font-weight="900">&amp; JavaScript.</text>
+  </g>
+
+  <!-- Center Stylized Visual / Optical Element -->
+  <g transform="translate(420, 340)">
+    <!-- Lens Circles -->
+    <circle cx="100" cy="180" r="140" fill="#0E0E12" stroke="#27272A" stroke-width="6" />
+    <circle cx="100" cy="180" r="115" fill="#18181B" stroke="#FF5722" stroke-width="2.5" opacity="0.8" />
+    <circle cx="100" cy="180" r="85" fill="#27272A" />
+    <circle cx="100" cy="180" r="50" fill="#0A0A0C" />
+    <circle cx="80" cy="160" r="18" fill="#FFFFFF" opacity="0.25" />
+    
+    <!-- Anamorphic Lens Flare Line -->
+    <line x1="-40" y1="180" x2="240" y2="180" stroke="#FF5722" stroke-width="3" opacity="0.7" />
+    <circle cx="100" cy="180" r="6" fill="#FF5722" />
+
+    <!-- Camera Viewfinder Grid Markers -->
+    <path d="M 40 120 L 40 100 L 60 100" fill="none" stroke="#A1A1AA" stroke-width="2" />
+    <path d="M 160 120 L 160 100 L 140 100" fill="none" stroke="#A1A1AA" stroke-width="2" />
+    <path d="M 40 240 L 40 260 L 60 260" fill="none" stroke="#A1A1AA" stroke-width="2" />
+    <path d="M 160 240 L 160 260 L 140 260" fill="none" stroke="#A1A1AA" stroke-width="2" />
+    
+    <!-- Core Discipline Indicator -->
+    <text x="100" y="360" text-anchor="middle" fill="#71717A" font-family="monospace" font-size="14" font-weight="bold" letter-spacing="2">3 DISCIPLINE FOCUS</text>
+  </g>
+
+  <!-- Right Side Editorial Statement -->
+  <g transform="translate(460, 680)">
+    <text x="0" y="0" fill="#3F3F46" font-family="system-ui, sans-serif" font-size="44" font-weight="200" letter-spacing="-1">visuals</text>
+    <text x="0" y="48" fill="#09090B" font-family="system-ui, sans-serif" font-size="52" font-weight="900" letter-spacing="-1.5">design &amp;</text>
+    <text x="0" y="102" fill="#09090B" font-family="system-ui, sans-serif" font-size="52" font-weight="900" letter-spacing="-1.5">code.</text>
+    <text x="0" y="145" fill="#71717A" font-family="system-ui, sans-serif" font-size="16" font-weight="500">Video &bull; Design &bull; Laravel/Vue</text>
+  </g>
+
+  <!-- Minimal Dividing Rule -->
+  <line x1="60" y1="840" x2="380" y2="840" stroke="#D4D4D8" stroke-width="2" />
+  
+  <text x="60" y="875" fill="#71717A" font-family="monospace" font-size="11" font-weight="bold" letter-spacing="1">CINEMATIC &bull; PODCAST &bull; FIGMA &bull; LARAVEL &bull; VUE &bull; PHP &bull; JS</text>
+
+  <!-- Bottom Dark Curved Card Section -->
+  <path d="M 0 940 C 320 940, 480 890, 800 890 L 800 1200 L 0 1200 Z" fill="#0E0E12" />
+
+  <!-- Name & Title on Dark Section -->
+  <text x="60" y="1010" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="800" letter-spacing="-1">Mochammad Muiz</text>
+  <text x="60" y="1075" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="56" font-weight="800" letter-spacing="-1">Afdloly</text>
+  
+  <text x="60" y="1145" fill="#A1A1AA" font-family="system-ui, sans-serif" font-size="22" font-weight="500">Videography &bull; Designer &bull; Web Developer</text>
+  <text x="740" y="1145" text-anchor="end" fill="#FF5722" font-family="monospace" font-size="18" font-weight="bold" letter-spacing="2">MMA PRODUCTION</text>
+</svg>

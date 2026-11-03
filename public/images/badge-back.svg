@@ -1,0 +1,124 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1125" width="800" height="1125">
+  <defs>
+    <linearGradient id="bgGradBack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121216" />
+      <stop offset="50%" stop-color="#0A0A0C" />
+      <stop offset="100%" stop-color="#16161C" />
+    </linearGradient>
+    <linearGradient id="holoText" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FF5722" />
+      <stop offset="50%" stop-color="#FFAB91" />
+      <stop offset="100%" stop-color="#FF7043" />
+    </linearGradient>
+    <pattern id="dotPattern" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="1.5" fill="#1C1C24" />
+    </pattern>
+  </defs>
+
+  <!-- Card Background -->
+  <rect width="800" height="1125" rx="36" fill="url(#bgGradBack)" stroke="#26262E" stroke-width="6" />
+  
+  <!-- Subtle Dot Grid in Center -->
+  <rect x="50" y="140" width="700" height="840" fill="url(#dotPattern)" opacity="0.6" rx="20" />
+
+  <!-- Top Border and Crosshairs -->
+  <line x1="60" y1="120" x2="740" y2="120" stroke="#1F1F28" stroke-width="2" />
+  <text x="70" y="100" fill="#666" font-family="monospace" font-size="16" font-weight="bold">+</text>
+  <text x="720" y="100" fill="#666" font-family="monospace" font-size="16" font-weight="bold">+</text>
+  
+  <text x="400" y="85" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="900" letter-spacing="4">PRODUCTION CLEARANCE</text>
+  <text x="400" y="108" text-anchor="middle" fill="#FF5722" font-family="monospace" font-size="12" font-weight="bold" letter-spacing="3">SECURITY VERIFICATION PROTOCOL</text>
+
+  <!-- Giant Geometric Monogram MMA in center -->
+  <g transform="translate(400, 360)">
+    <!-- Outer Octagon / Circle Ring -->
+    <circle r="160" fill="#0E0E12" stroke="#252530" stroke-width="4" />
+    <circle r="140" fill="none" stroke="#FF5722" stroke-width="2" stroke-dasharray="6 8" opacity="0.7" />
+    
+    <!-- Monogram MMA -->
+    <path d="M-80,60 L-80,-60 L-35,10 L-35,-60 L-10,-60 L-10,60 L-35,60 L-58,15 L-58,60 Z" fill="#FFFFFF" />
+    <path d="M-5,60 L-5,-60 L40,10 L40,-60 L65,-60 L65,60 L40,60 L17,15 L17,60 Z" fill="url(#holoText)" />
+  </g>
+
+  <text x="400" y="570" text-anchor="middle" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="30" font-weight="800" letter-spacing="3">MMA PRODUCTION</text>
+  <text x="400" y="600" text-anchor="middle" fill="#888899" font-family="monospace" font-size="14" letter-spacing="2">CINEMA &bull; POST-PRODUCTION &bull; SOUND DESIGN</text>
+
+  <!-- Security Specs Table -->
+  <g transform="translate(100, 640)">
+    <rect width="600" height="150" rx="12" fill="#0C0C10" stroke="#1F1F28" stroke-width="2" />
+    
+    <text x="30" y="40" fill="#666677" font-family="monospace" font-size="12" letter-spacing="1">ROLE DESIGNATION</text>
+    <text x="30" y="62" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">HEAD OF CREATIVE &amp; DIRECTOR</text>
+
+    <text x="340" y="40" fill="#666677" font-family="monospace" font-size="12" letter-spacing="1">STUDIO WORKSPACE</text>
+    <text x="340" y="62" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">MALANG / SURABAYA, ID</text>
+
+    <line x1="30" y1="85" x2="570" y2="85" stroke="#1A1A22" stroke-width="1.5" />
+
+    <text x="30" y="115" fill="#666677" font-family="monospace" font-size="12" letter-spacing="1">COLOR PIPELINE</text>
+    <text x="30" y="135" fill="#FF5722" font-family="monospace" font-size="14" font-weight="bold">DAVINCI ACES / REC.709</text>
+
+    <text x="340" y="115" fill="#666677" font-family="monospace" font-size="12" letter-spacing="1">DIRECT INQUIRIES</text>
+    <text x="340" y="135" fill="#FFFFFF" font-family="monospace" font-size="13">muizmochammad@gmail.com</text>
+  </g>
+
+  <!-- Terms / Disclaimer -->
+  <text x="400" y="825" text-anchor="middle" fill="#555566" font-family="system-ui, sans-serif" font-size="11" letter-spacing="1">
+    ALL-ACCESS PASS FOR ON-LOCATION PRODUCTION, STUDIOS &amp; EDITORIAL SUITES.
+  </text>
+  <text x="400" y="845" text-anchor="middle" fill="#444455" font-family="monospace" font-size="10" letter-spacing="1">
+    PROPERTY OF MMA PRODUCTION. IF FOUND, RETURN TO AUTHORIZED CREW DESK.
+  </text>
+
+  <!-- Bottom Tech Barcode -->
+  <line x1="60" y1="875" x2="740" y2="875" stroke="#1F1F28" stroke-width="2" />
+  
+  <g transform="translate(180, 900)">
+    <!-- Procedural Barcode Lines -->
+    <rect x="0" y="0" width="6" height="50" fill="#FFFFFF" />
+    <rect x="10" y="0" width="3" height="50" fill="#FFFFFF" />
+    <rect x="17" y="0" width="9" height="50" fill="#FFFFFF" />
+    <rect x="30" y="0" width="4" height="50" fill="#FFFFFF" />
+    <rect x="38" y="0" width="12" height="50" fill="#FFFFFF" />
+    <rect x="54" y="0" width="3" height="50" fill="#FFFFFF" />
+    <rect x="61" y="0" width="6" height="50" fill="#FFFFFF" />
+    <rect x="71" y="0" width="10" height="50" fill="#FFFFFF" />
+    <rect x="85" y="0" width="4" height="50" fill="#FFFFFF" />
+    <rect x="93" y="0" width="7" height="50" fill="#FFFFFF" />
+    <rect x="104" y="0" width="14" height="50" fill="#FFFFFF" />
+    <rect x="122" y="0" width="3" height="50" fill="#FFFFFF" />
+    <rect x="129" y="0" width="8" height="50" fill="#FFFFFF" />
+    <rect x="141" y="0" width="5" height="50" fill="#FFFFFF" />
+    <rect x="150" y="0" width="12" height="50" fill="#FFFFFF" />
+    <rect x="166" y="0" width="4" height="50" fill="#FFFFFF" />
+    <rect x="174" y="0" width="9" height="50" fill="#FFFFFF" />
+    <rect x="187" y="0" width="3" height="50" fill="#FFFFFF" />
+    <rect x="194" y="0" width="11" height="50" fill="#FFFFFF" />
+    <rect x="209" y="0" width="5" height="50" fill="#FFFFFF" />
+    <rect x="218" y="0" width="8" height="50" fill="#FFFFFF" />
+    <rect x="230" y="0" width="4" height="50" fill="#FFFFFF" />
+    <rect x="238" y="0" width="10" height="50" fill="#FFFFFF" />
+    <rect x="252" y="0" width="6" height="50" fill="#FFFFFF" />
+    <rect x="262" y="0" width="13" height="50" fill="#FFFFFF" />
+    <rect x="279" y="0" width="3" height="50" fill="#FFFFFF" />
+    <rect x="286" y="0" width="8" height="50" fill="#FFFFFF" />
+    <rect x="298" y="0" width="12" height="50" fill="#FFFFFF" />
+    <rect x="314" y="0" width="4" height="50" fill="#FFFFFF" />
+    <rect x="322" y="0" width="7" height="50" fill="#FFFFFF" />
+    <rect x="333" y="0" width="11" height="50" fill="#FFFFFF" />
+    <rect x="348" y="0" width="5" height="50" fill="#FFFFFF" />
+    <rect x="357" y="0" width="9" height="50" fill="#FFFFFF" />
+    <rect x="370" y="0" width="4" height="50" fill="#FFFFFF" />
+    <rect x="378" y="0" width="12" height="50" fill="#FFFFFF" />
+    <rect x="394" y="0" width="6" height="50" fill="#FFFFFF" />
+    <rect x="404" y="0" width="8" height="50" fill="#FFFFFF" />
+    <rect x="416" y="0" width="5" height="50" fill="#FFFFFF" />
+    <rect x="425" y="0" width="12" height="50" fill="#FFFFFF" />
+  </g>
+
+  <text x="400" y="980" text-anchor="middle" fill="#888899" font-family="monospace" font-size="14" letter-spacing="4">MMA-DIR-2026-X88490-SEC</text>
+
+  <!-- Bottom Crosshairs -->
+  <text x="70" y="990" fill="#666" font-family="monospace" font-size="16" font-weight="bold">+</text>
+  <text x="720" y="990" fill="#666" font-family="monospace" font-size="16" font-weight="bold">+</text>
+</svg>

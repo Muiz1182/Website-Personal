@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1200" width="800" height="1200">
+  <defs>
+    <linearGradient id="backGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#18181C" />
+      <stop offset="50%" stop-color="#101014" />
+      <stop offset="100%" stop-color="#0B0B0E" />
+    </linearGradient>
+  </defs>
+
+  <!-- Card Surface -->
+  <rect width="800" height="1200" rx="44" fill="url(#backGrad)" stroke="#22222A" stroke-width="4" />
+
+  <!-- Giant Vertical Rotated Typography -->
+  <g transform="translate(180, 1100) rotate(-90)">
+    <text x="0" y="0" fill="#FFFFFF" font-family="system-ui, -apple-system, sans-serif" font-size="78" font-weight="900" letter-spacing="-1">
+      Mochammad Muiz Afdloly
+    </text>
+  </g>
+
+  <!-- Secondary Vertical Studio Accent -->
+  <g transform="translate(260, 1100) rotate(-90)">
+    <text x="0" y="0" fill="#71717A" font-family="monospace" font-size="17" font-weight="bold" letter-spacing="3">
+      MMA PRODUCTION &bull; CINEMATIC &bull; PODCAST &bull; UI/UX &bull; POSTER &bull; LARAVEL &bull; VUE
+    </text>
+  </g>
+
+  <!-- Geometric MMA Studio Monogram in Upper Right -->
+  <g transform="translate(580, 240)">
+    <circle r="90" fill="#141418" stroke="#262630" stroke-width="3" />
+    <circle r="76" fill="none" stroke="#FF5722" stroke-width="2" stroke-dasharray="4 6" opacity="0.6" />
+    <!-- Stylized Camera / Code Hybrid Lines -->
+    <line x1="-50" y1="-20" x2="30" y2="-60" stroke="#FFFFFF" stroke-width="4" />
+    <line x1="30" y1="-60" x2="60" y2="20" stroke="#FFFFFF" stroke-width="4" />
+    <line x1="60" y1="20" x2="-20" y2="60" stroke="#FFFFFF" stroke-width="4" />
+    <line x1="-20" y1="60" x2="-50" y2="-20" stroke="#FF5722" stroke-width="4" />
+    <circle cx="5" cy="0" r="12" fill="#FF5722" />
+  </g>
+
+  <!-- Bottom Technical Verification Details -->
+  <g transform="translate(420, 950)">
+    <text x="0" y="0" fill="#71717A" font-family="monospace" font-size="14" letter-spacing="2">ROLE DESIGNATION</text>
+    <text x="0" y="24" fill="#FFFFFF" font-family="system-ui, sans-serif" font-size="16" font-weight="bold">VIDEOGRAPHY / DESIGNER / WEB DEV</text>
+    
+    <text x="0" y="70" fill="#71717A" font-family="monospace" font-size="14" letter-spacing="2">CLEARANCE ID</text>
+    <text x="0" y="94" fill="#FF5722" font-family="monospace" font-size="18" font-weight="bold">MMA-PASS-2026</text>
+  </g>
+
+  <!-- Barcode Strip along the Bottom Right -->
+  <g transform="translate(420, 1080)">
+    <rect x="0" y="0" width="4" height="40" fill="#FFFFFF" />
+    <rect x="8" y="0" width="8" height="40" fill="#FFFFFF" />
+    <rect x="20" y="0" width="3" height="40" fill="#FFFFFF" />
+    <rect x="28" y="0" width="10" height="40" fill="#FFFFFF" />
+    <rect x="42" y="0" width="5" height="40" fill="#FFFFFF" />
+    <rect x="52" y="0" width="12" height="40" fill="#FFFFFF" />
+    <rect x="68" y="0" width="4" height="40" fill="#FFFFFF" />
+    <rect x="76" y="0" width="8" height="40" fill="#FFFFFF" />
+    <rect x="88" y="0" width="14" height="40" fill="#FFFFFF" />
+    <rect x="106" y="0" width="3" height="40" fill="#FFFFFF" />
+    <rect x="114" y="0" width="9" height="40" fill="#FFFFFF" />
+    <rect x="128" y="0" width="5" height="40" fill="#FFFFFF" />
+    <rect x="138" y="0" width="12" height="40" fill="#FFFFFF" />
+    <rect x="154" y="0" width="4" height="40" fill="#FFFFFF" />
+    <rect x="162" y="0" width="10" height="40" fill="#FFFFFF" />
+    <rect x="176" y="0" width="6" height="40" fill="#FFFFFF" />
+    <rect x="186" y="0" width="12" height="40" fill="#FFFFFF" />
+    <rect x="202" y="0" width="4" height="40" fill="#FFFFFF" />
+    <rect x="210" y="0" width="8" height="40" fill="#FFFFFF" />
+    <rect x="222" y="0" width="10" height="40" fill="#FFFFFF" />
+    <rect x="236" y="0" width="4" height="40" fill="#FFFFFF" />
+    <rect x="244" y="0" width="12" height="40" fill="#FFFFFF" />
+    <rect x="260" y="0" width="6" height="40" fill="#FFFFFF" />
+  </g>
+</svg>
