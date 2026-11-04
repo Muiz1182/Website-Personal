@@ -9,17 +9,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon-16x16.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <style>
+        [x-cloak] { display: none !important; }
+    </style>
 </head>
 <body class="h-full bg-[#070707] text-[#F5F5F7] font-sans antialiased flex items-center justify-center p-6 selection:bg-[#FF5722] selection:text-white">
 
     <div class="w-full max-w-md">
         <!-- Logo Branding -->
         <div class="text-center mb-10">
-            <a href="{{ route('home') }}" class="inline-flex items-center space-x-2 text-white font-extrabold text-3xl tracking-tighter uppercase group">
-                <span class="font-display">MMA</span>
-                <span class="text-[#FF5722] transition-transform duration-300 group-hover:scale-125">.</span>
-                <span class="text-neutral-400 font-light text-base tracking-widest">PRODUCTION</span>
+            <a href="{{ route('home') }}" class="inline-flex items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5722] rounded transition-opacity duration-200 hover:opacity-90">
+                <img src="{{ asset('images/mma-logo.png') }}" alt="MMA PRODUCTION" class="h-8 md:h-[34px] w-auto object-contain">
             </a>
             <p class="mt-3 text-xs uppercase tracking-[0.25em] text-neutral-400 font-medium">
                 Panel Kontrol CMS &bull; Akses Terbatas
@@ -105,6 +115,9 @@
             MMA PRODUCTION &bull; SISTEM MANAJEMEN KONTEN
         </div>
     </div>
+
+    <!-- Global Toast Notifications -->
+    <x-toast />
 
 </body>
 </html>

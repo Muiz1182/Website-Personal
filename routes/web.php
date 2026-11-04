@@ -27,8 +27,8 @@ Route::get('/lang/{locale}', function (string $locale) {
 Route::post('/contact', [ContactController::class, 'submit'])->middleware('throttle:10,1')->name('contact.submit');
 
 // Otentikasi Admin
-Route::get('/admin/login', [AuthController::class, 'loginForm'])->name('login');
-Route::get('/login', fn() => redirect()->route('login'));
+Route::get('/admin/login', [AuthController::class, 'loginForm'])->name('admin.login');
+Route::get('/login', fn() => redirect()->route('admin.login'))->name('login');
 Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login.submit');
 Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
 

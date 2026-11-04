@@ -14,10 +14,8 @@
 >
     <div class="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
         <!-- Brand Mark -->
-        <a href="/" class="group flex items-center space-x-2 text-white font-extrabold text-xl md:text-2xl tracking-tighter uppercase focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5722]">
-            <span class="font-display">MMA</span>
-            <span class="text-[#FF5722] transition-transform duration-300 group-hover:scale-125">.</span>
-            <span class="text-neutral-300 font-light text-base tracking-widest hidden sm:inline">PRODUCTION</span>
+        <a href="/" class="group flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5722] rounded py-0.5 transition-opacity duration-200 hover:opacity-90">
+            <img src="{{ asset('images/mma-logo.png') }}" alt="MMA PRODUCTION" class="h-[25px] md:h-[26px] w-auto object-contain">
         </a>
 
         <!-- Desktop Navigation Items -->
