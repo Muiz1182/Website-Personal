@@ -12,6 +12,7 @@ class Testimonial extends Model
         'project',
         'quote',
         'order',
+        'status',
     ];
 }
 

@@ -146,6 +146,22 @@
                 >
             </div>
 
+            <!-- Status Publikasi -->
+            <div>
+                <label for="status" class="block text-xs uppercase tracking-wider font-semibold text-neutral-300 mb-2">
+                    Status Publikasi <span class="text-[#FF5722]">*</span>
+                </label>
+                <select 
+                    name="status" 
+                    id="status" 
+                    required 
+                    class="w-full bg-[#070707] border border-[#1F1F24] text-white px-4 py-3 text-sm focus:outline-none focus:border-[#FF5722] focus:ring-1 focus:ring-[#FF5722]"
+                >
+                    <option value="published" {{ old('status', $project->status) === 'published' ? 'selected' : '' }}>Publish (Tampil di Landing Page)</option>
+                    <option value="draft" {{ old('status', $project->status) === 'draft' ? 'selected' : '' }}>Draft (Sembunyikan dari Publik)</option>
+                </select>
+            </div>
+
             <!-- Gambar: Upload File & Pratinjau -->
             <div class="md:col-span-2 p-4 bg-[#151518] border border-[#1F1F24] space-y-4">
                 <div class="flex items-center justify-between">

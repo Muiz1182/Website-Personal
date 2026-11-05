@@ -36,15 +36,24 @@ class TestimonialController extends Controller
             'project' => ['nullable', 'string', 'max:255'],
             'quote'   => ['required', 'string'],
             'order'   => ['nullable', 'integer'],
+            'status'  => ['nullable', 'string', 'in:published,draft'],
         ]);
 
-        Testimonial::create([
+        $testimonial = Testimonial::create([
             'name'    => $validated['name'],
             'role'    => $validated['role'] ?? null,
             'project' => $validated['project'] ?? null,
             'quote'   => $validated['quote'],
             'order'   => $validated['order'] ?? 0,
+            'status'  => $validated['status'] ?? 'published',
         ]);
+
+        try {
+            $translator = app(\App\Services\AutoTranslationService::class);
+            $translator->translate($testimonial->role);
+            $translator->translate($testimonial->project);
+            $translator->translate($testimonial->quote);
+        } catch (\Throwable $e) {}
 
         return redirect()->route('admin.testimonials.index')->with('status', 'Ulasan klien berhasil ditambahkan.');
     }
@@ -68,6 +77,7 @@ class TestimonialController extends Controller
             'project' => ['nullable', 'string', 'max:255'],
             'quote'   => ['required', 'string'],
             'order'   => ['nullable', 'integer'],
+            'status'  => ['nullable', 'string', 'in:published,draft'],
         ]);
 
         $testimonial->update([
@@ -76,7 +86,15 @@ class TestimonialController extends Controller
             'project' => $validated['project'] ?? null,
             'quote'   => $validated['quote'],
             'order'   => $validated['order'] ?? 0,
+            'status'  => $validated['status'] ?? 'published',
         ]);
+
+        try {
+            $translator = app(\App\Services\AutoTranslationService::class);
+            $translator->translate($testimonial->role);
+            $translator->translate($testimonial->project);
+            $translator->translate($testimonial->quote);
+        } catch (\Throwable $e) {}
 
         return redirect()->route('admin.testimonials.index')->with('status', 'Ulasan klien berhasil diperbarui.');
     }

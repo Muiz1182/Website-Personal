@@ -39,6 +39,7 @@
                             <th class="px-6 py-4">Visual</th>
                             <th class="px-6 py-4">Judul & Tagline</th>
                             <th class="px-6 py-4">Kategori</th>
+                            <th class="px-6 py-4">Status</th>
                             <th class="px-6 py-4">Tahun</th>
                             <th class="px-6 py-4">Urutan</th>
                             <th class="px-6 py-4 text-right">Tindakan</th>
@@ -63,6 +64,17 @@
                                     <span class="inline-block text-[11px] font-bold uppercase tracking-wider px-2.5 py-1 bg-[#151518] text-white border border-[#1F1F24]">
                                         {{ $item->category }}
                                     </span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    @if ($item->status === 'draft')
+                                        <span class="inline-flex items-center px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/30">
+                                            Draft
+                                        </span>
+                                    @else
+                                        <span class="inline-flex items-center px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                                            Publish
+                                        </span>
+                                    @endif
                                 </td>
                                 <td class="px-6 py-4 font-mono text-neutral-400">
                                     {{ $item->year }}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ app()->getLocale() === 'id' ? 'MMA PRODUCTION: Portofolio Mochammad Muiz Afdloly. Video Cinematic & Podcast, Desain UI/UX & Poster/Ilustrasi, serta Web Developer Laravel, Vue, PHP & JS.' : 'MMA PRODUCTION: Portfolio of Mochammad Muiz Afdloly. Cinematic Video & Podcasts, UI/UX & Poster/Illustration Design, and Web Development (Laravel, Vue, PHP, JS).' }}">
-    <title>{{ app()->getLocale() === 'id' ? 'MMA PRODUCTION | Video Cinematic, Desain UI/UX & Web Developer Laravel' : 'MMA PRODUCTION | Cinematic Video, UI/UX Design & Laravel Web Developer' }}</title>
+    <title>{{ $title ?? 'MMA PRODUCTION' }}</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

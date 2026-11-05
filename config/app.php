@@ -123,4 +123,15 @@ return [
         'store' => env('APP_MAINTENANCE_STORE', 'database'),
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | Admin Security Gate Key
+    |--------------------------------------------------------------------------
+    |
+    | Kunci sandi gerbang akses yang wajib dimasukkan sebelum halaman login
+    | admin dapat dibuka.
+    |
+    */
+    'admin_gate_key' => env('ADMIN_GATE_KEY', '@MMAProd_2026!'),
+
 ];

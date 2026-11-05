@@ -8,7 +8,8 @@ use App\Http\Controllers\Admin\{
     ProjectController,
     ServiceController,
     CreatorController,
-    TestimonialController
+    TestimonialController,
+    AnnouncementController
 };
 
 // Rute utama portofolio
@@ -26,9 +27,10 @@ Route::get('/lang/{locale}', function (string $locale) {
 // Form pengiriman kontak
 Route::post('/contact', [ContactController::class, 'submit'])->middleware('throttle:10,1')->name('contact.submit');
 
-// Otentikasi Admin
+// Otentikasi Admin & Gerbang Keamanan
 Route::get('/admin/login', [AuthController::class, 'loginForm'])->name('admin.login');
 Route::get('/login', fn() => redirect()->route('admin.login'))->name('login');
+Route::post('/admin/gate-verify', [AuthController::class, 'verifyGate'])->middleware('throttle:5,1')->name('admin.gate.verify');
 Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login.submit');
 Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
@@ -48,4 +50,8 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     // CRUD Ulasan Klien (Testimonials)
     Route::resource('testimonials', TestimonialController::class)->names('admin.testimonials');
+
+    // CRUD Pengumuman Popup (Announcements)
+    Route::resource('announcements', AnnouncementController::class)->names('admin.announcements');
+    Route::post('announcements/{announcement}/toggle', [AnnouncementController::class, 'toggle'])->name('admin.announcements.toggle');
 });

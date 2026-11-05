@@ -17,6 +17,7 @@ class Project extends Model
         'span',
         'aspect',
         'order',
+        'status',
     ];
 }
 

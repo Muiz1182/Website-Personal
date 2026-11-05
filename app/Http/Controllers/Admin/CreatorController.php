@@ -124,6 +124,24 @@ class CreatorController extends Controller
             'stats'         => $statsArray,
         ]);
 
+        try {
+            $translator = app(\App\Services\AutoTranslationService::class);
+            $translator->translate($creator->role);
+            $translator->translate($creator->headline);
+            $translator->translate($creator->bio);
+            if (is_array($creator->disciplines)) {
+                foreach ($creator->disciplines as $d) {
+                    $translator->translate($d);
+                }
+            }
+            if (is_array($creator->stats)) {
+                foreach ($creator->stats as $st) {
+                    $translator->translate($st['label'] ?? '');
+                    $translator->translate($st['value'] ?? '');
+                }
+            }
+        } catch (\Throwable $e) {}
+
         return redirect()->route('admin.creator.edit')->with('status', 'Profil kreator berhasil diperbarui.');
     }
 }

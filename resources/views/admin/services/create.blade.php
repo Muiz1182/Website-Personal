@@ -57,7 +57,7 @@
             </div>
 
             <!-- Tagline -->
-            <div class="md:col-span-2">
+            <div class="md:col-span-3">
                 <label for="tagline" class="block text-xs uppercase tracking-wider font-semibold text-neutral-300 mb-2">
                     Tagline Ringkas
                 </label>
@@ -72,7 +72,7 @@
             </div>
 
             <!-- Urutan -->
-            <div>
+            <div class="md:col-span-1">
                 <label for="order" class="block text-xs uppercase tracking-wider font-semibold text-neutral-300 mb-2">
                     Nomor Urutan
                 </label>
@@ -83,6 +83,22 @@
                     value="{{ old('order', 1) }}" 
                     class="w-full bg-[#070707] border border-[#1F1F24] text-white px-4 py-3 text-sm focus:outline-none focus:border-[#FF5722] focus:ring-1 focus:ring-[#FF5722]"
                 >
+            </div>
+
+            <!-- Status Publikasi -->
+            <div class="md:col-span-2">
+                <label for="status" class="block text-xs uppercase tracking-wider font-semibold text-neutral-300 mb-2">
+                    Status Publikasi <span class="text-[#FF5722]">*</span>
+                </label>
+                <select 
+                    name="status" 
+                    id="status" 
+                    required 
+                    class="w-full bg-[#070707] border border-[#1F1F24] text-white px-4 py-3 text-sm focus:outline-none focus:border-[#FF5722] focus:ring-1 focus:ring-[#FF5722]"
+                >
+                    <option value="published" {{ old('status', 'published') === 'published' ? 'selected' : '' }}>Publish (Tampil di Landing Page)</option>
+                    <option value="draft" {{ old('status') === 'draft' ? 'selected' : '' }}>Draft (Sembunyikan dari Publik)</option>
+                </select>
             </div>
 
             <!-- Deskripsi -->

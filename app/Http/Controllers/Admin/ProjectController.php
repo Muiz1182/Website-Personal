@@ -43,6 +43,7 @@ class ProjectController extends Controller
             'span'        => ['required', 'string', 'in:col-span-1 md:col-span-1,col-span-1 md:col-span-2'],
             'aspect'      => ['required', 'string', 'in:aspect-[4/3],aspect-[16/9]'],
             'order'       => ['nullable', 'integer'],
+            'status'      => ['nullable', 'string', 'in:published,draft'],
         ]);
 
         $imagePath = $validated['image_url'] ?? null;
@@ -54,7 +55,7 @@ class ProjectController extends Controller
             $imagePath = '/uploads/projects/' . $filename;
         }
 
-        Project::create([
+        $project = Project::create([
             'title'       => $validated['title'],
             'category'    => $validated['category'],
             'tag'         => $validated['tag'] ?? null,
@@ -65,7 +66,16 @@ class ProjectController extends Controller
             'span'        => $validated['span'],
             'aspect'      => $validated['aspect'],
             'order'       => $validated['order'] ?? 0,
+            'status'      => $validated['status'] ?? 'published',
         ]);
+
+        try {
+            $translator = app(\App\Services\AutoTranslationService::class);
+            $translator->translate($project->title);
+            $translator->translate($project->tag);
+            $translator->translate($project->specs);
+            $translator->translate($project->description);
+        } catch (\Throwable $e) {}
 
         return redirect()->route('admin.projects.index')->with('status', 'Karya berhasil ditambahkan ke portofolio.');
     }
@@ -95,6 +105,7 @@ class ProjectController extends Controller
             'span'        => ['required', 'string', 'in:col-span-1 md:col-span-1,col-span-1 md:col-span-2'],
             'aspect'      => ['required', 'string', 'in:aspect-[4/3],aspect-[16/9]'],
             'order'       => ['nullable', 'integer'],
+            'status'      => ['nullable', 'string', 'in:published,draft'],
         ]);
 
         $imagePath = $project->image;
@@ -121,7 +132,16 @@ class ProjectController extends Controller
             'span'        => $validated['span'],
             'aspect'      => $validated['aspect'],
             'order'       => $validated['order'] ?? 0,
+            'status'      => $validated['status'] ?? 'published',
         ]);
+
+        try {
+            $translator = app(\App\Services\AutoTranslationService::class);
+            $translator->translate($project->title);
+            $translator->translate($project->tag);
+            $translator->translate($project->specs);
+            $translator->translate($project->description);
+        } catch (\Throwable $e) {}
 
         return redirect()->route('admin.projects.index')->with('status', 'Karya berhasil diperbarui.');
     }

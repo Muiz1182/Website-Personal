@@ -39,6 +39,7 @@
                             <th class="px-6 py-4">Nama Klien</th>
                             <th class="px-6 py-4">Peran / Perusahaan</th>
                             <th class="px-6 py-4">Lingkup Proyek</th>
+                            <th class="px-6 py-4">Status</th>
                             <th class="px-6 py-4">Kutipan Ulasan</th>
                             <th class="px-6 py-4">Urutan</th>
                             <th class="px-6 py-4 text-right">Tindakan</th>
@@ -57,6 +58,17 @@
                                     <span class="text-[11px] font-semibold text-[#FF5722] bg-[#151518] px-2 py-0.5 border border-[#1F1F24]">
                                         {{ $item->project }}
                                     </span>
+                                </td>
+                                <td class="px-6 py-4">
+                                    @if ($item->status === 'draft')
+                                        <span class="inline-flex items-center px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/30">
+                                            Draft
+                                        </span>
+                                    @else
+                                        <span class="inline-flex items-center px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                                            Publish
+                                        </span>
+                                    @endif
                                 </td>
                                 <td class="px-6 py-4 text-neutral-400 max-w-md">
                                     <p class="line-clamp-2 leading-relaxed">"{{ $item->quote }}"</p>

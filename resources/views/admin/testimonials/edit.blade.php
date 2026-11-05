@@ -55,7 +55,7 @@
             </div>
 
             <!-- Lingkup Proyek -->
-            <div>
+            <div class="md:col-span-2">
                 <label for="project" class="block text-xs uppercase tracking-wider font-semibold text-neutral-300 mb-2">
                     Kategori / Lingkup Proyek
                 </label>
@@ -80,6 +80,22 @@
                     value="{{ old('order', $testimonial->order) }}" 
                     class="w-full bg-[#070707] border border-[#1F1F24] text-white px-4 py-3 text-sm focus:outline-none focus:border-[#FF5722] focus:ring-1 focus:ring-[#FF5722]"
                 >
+            </div>
+
+            <!-- Status Publikasi -->
+            <div>
+                <label for="status" class="block text-xs uppercase tracking-wider font-semibold text-neutral-300 mb-2">
+                    Status Publikasi <span class="text-[#FF5722]">*</span>
+                </label>
+                <select 
+                    name="status" 
+                    id="status" 
+                    required 
+                    class="w-full bg-[#070707] border border-[#1F1F24] text-white px-4 py-3 text-sm focus:outline-none focus:border-[#FF5722] focus:ring-1 focus:ring-[#FF5722]"
+                >
+                    <option value="published" {{ old('status', $testimonial->status) === 'published' ? 'selected' : '' }}>Publish (Tampil di Landing Page)</option>
+                    <option value="draft" {{ old('status', $testimonial->status) === 'draft' ? 'selected' : '' }}>Draft (Sembunyikan dari Publik)</option>
+                </select>
             </div>
 
             <!-- Isi Kutipan Ulasan -->

@@ -13,6 +13,7 @@ class Service extends Model
         'description',
         'deliverables',
         'order',
+        'status',
     ];
 
     protected $casts = [

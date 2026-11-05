@@ -7,9 +7,9 @@
     $subtitle = $strings['subtitle'] ?? ($isId ? 'Punya proyek video cinematic, rekaman podcast, desain UI/UX, ilustrasi, poster, atau pembuatan website (Laravel & Vue)? Sampaikan kebutuhan Anda atau hubungi langsung via WhatsApp maupun email.' : 'Have a project in cinematic video, podcast recording, UI/UX, illustration, posters, or web development (Laravel & Vue)? Fill out the brief below or get in touch directly via WhatsApp or email.');
     $emailLabel = $strings['email_label'] ?? ($isId ? 'Email Resmi' : 'Direct Email');
     $waLabel = $strings['wa_label'] ?? ($isId ? 'Kontak Instan (WhatsApp)' : 'Instant Booking (WhatsApp)');
-    $waLinkText = $strings['wa_link_text'] ?? ($isId ? '+62 812-3456-7890 (Chat via WhatsApp)' : '+62 812-3456-7890 (Chat via WhatsApp)');
+    $waLinkText = $strings['wa_link_text'] ?? ($isId ? '+62 851 7442 1182 (Chat via WhatsApp)' : '+62 851 7442 1182 (Chat via WhatsApp)');
     $hubLabel = $strings['hub_label'] ?? ($isId ? 'Basis Kreatif' : 'Creative Hub');
-    $hubVal = $strings['hub_val'] ?? 'Surabaya &bull; Jakarta, Indonesia';
+    $hubVal = $strings['hub_val'] ?? ($isId ? 'Probolinggo, Jawa Timur, Indonesia' : 'Probolinggo, East Java, Indonesia');
     $hubSub = $isId ? 'Tersedia untuk proyek on-site maupun kolaborasi jarak jauh (remote)' : 'Available for on-site projects and remote collaborations';
     $bookingTitle = $isId ? 'Penerimaan Proyek Terbuka' : 'Available for New Commissions';
     $bookingSub = $isId ? 'Menerima proyek video cinematic, podcast, desain UI/UX, ilustrasi, poster, dan website developer (Laravel & Vue).' : 'Accepting commissions across cinematic video, podcasts, UI/UX, illustration, posters, and web development (Laravel & Vue).';
@@ -51,7 +51,7 @@
                     </div>
                     <div>
                         <span class="text-[10px] uppercase tracking-widest text-neutral-500 block font-semibold">{{ $emailLabel }}</span>
-                        <a href="mailto:muiz1182.business@gmail.com" class="text-sm font-semibold text-white hover:text-[#FF5722] transition-colors">
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=muiz1182.business@gmail.com" target="_blank" rel="noopener noreferrer" class="text-sm font-semibold text-white hover:text-[#FF5722] transition-colors">
                             muiz1182.business@gmail.com
                         </a>
                     </div>
@@ -66,7 +66,7 @@
                     <div>
                         <span class="text-[10px] uppercase tracking-widest text-neutral-500 block font-semibold">{{ $waLabel }}</span>
                         <a 
-                            href="https://wa.me/6281234567890?text={{ $isId ? 'Halo%20MMA%20Production,%20saya%20tertarik%20untuk%20diskusi%20proyek%20(Videografi/Desain/Web).' : 'Hello%20MMA%20Production,%20I%20would%20like%20to%20discuss%20a%20project%20(Videography/Design/Web).' }}" 
+                            href="https://wa.me/6285174421182?text={{ $isId ? 'Halo%20MMA%20Production,%20saya%20tertarik%20untuk%20diskusi%20proyek%20(Videografi/Desain/Web).' : 'Hello%20MMA%20Production,%20I%20would%20like%20to%20discuss%20a%20project%20(Videography/Design/Web).' }}" 
                             target="_blank" 
                             rel="noopener noreferrer" 
                             class="text-sm font-semibold text-[#FF5722] hover:underline transition-colors"
@@ -111,30 +111,6 @@
             <p class="text-xs text-neutral-400 mb-8">
                 {{ $formSub }}
             </p>
-
-            @if(session('success'))
-                <div class="p-5 mb-8 bg-emerald-950/60 border border-emerald-500/80 text-emerald-300 text-sm flex items-start space-x-3" role="alert">
-                    <svg class="w-5 h-5 shrink-0 text-emerald-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
-                    <div>
-                        <span class="font-bold block">{{ $isId ? 'Pesan Terkirim' : 'Brief Transmitted' }}</span>
-                        <span>{{ session('success') }}</span>
-                    </div>
-                </div>
-            @endif
-
-            @if(session('error'))
-                <div class="p-5 mb-8 bg-red-950/60 border border-red-500/80 text-red-300 text-sm flex items-start space-x-3" role="alert">
-                    <svg class="w-5 h-5 shrink-0 text-red-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                    <div>
-                        <span class="font-bold block">{{ $isId ? 'Terjadi Kendala' : 'Submission Error' }}</span>
-                        <span>{{ session('error') }}</span>
-                    </div>
-                </div>
-            @endif
 
             <form action="{{ route('contact.submit') }}" method="POST" class="space-y-6">
                 @csrf

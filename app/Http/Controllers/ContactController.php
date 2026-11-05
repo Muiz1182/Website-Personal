@@ -76,8 +76,8 @@ class ContactController extends Controller
             ]);
             
             $errorMsg = $isId
-                ? 'Terjadi kendala pengiriman email server. Pengajuan Anda telah tercatat di sistem kami, atau silakan hubungi langsung via WhatsApp di +62 812-3456-7890.'
-                : 'A mail server connectivity issue occurred. Your brief was recorded in our system, or please contact us directly via WhatsApp at +62 812-3456-7890.';
+                ? 'Terjadi kendala pengiriman email server. Pengajuan Anda telah tercatat di sistem kami, atau silakan hubungi langsung via WhatsApp di +62 851 7442 1182.'
+                : 'A mail server connectivity issue occurred. Your brief was recorded in our system, or please contact us directly via WhatsApp at +62 851 7442 1182.';
 
             return back()->with('error', $errorMsg);
         }

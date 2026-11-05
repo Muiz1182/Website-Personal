@@ -103,6 +103,16 @@
                         </svg>
                         <span>Ulasan Klien</span>
                     </a>
+
+                    <a 
+                        href="{{ route('admin.announcements.index') }}" 
+                        class="flex items-center space-x-3 px-4 py-3 rounded-none transition-colors {{ request()->routeIs('admin.announcements.*') ? 'bg-[#FF5722] text-white font-bold' : 'text-neutral-400 hover:text-white hover:bg-[#151518]' }}"
+                    >
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z" />
+                        </svg>
+                        <span>Pengumuman</span>
+                    </a>
                 </nav>
             </div>
 
@@ -156,18 +166,6 @@
 
             <!-- Page Body -->
             <main class="flex-1 p-6 md:p-10 lg:p-12 max-w-7xl w-full mx-auto">
-                <!-- Status Notifications -->
-                @if (session('status'))
-                    <div class="mb-8 p-4 bg-[#0E0E10] border-l-4 border-[#FF5722] border-y border-r border-[#1F1F24] flex items-center justify-between">
-                        <div class="flex items-center space-x-3 text-sm text-neutral-200">
-                            <svg class="w-5 h-5 text-[#FF5722] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                            </svg>
-                            <span>{{ session('status') }}</span>
-                        </div>
-                    </div>
-                @endif
-
                 @if ($errors->any())
                     <div class="mb-8 p-4 bg-[#180A0A] border-l-4 border-red-500 border-y border-r border-red-900/40 text-sm text-red-200">
                         <p class="font-bold mb-1">Periksa kembali data yang dimasukkan:</p>

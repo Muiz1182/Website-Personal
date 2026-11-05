@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\View\View;
-use App\Models\{Project, Service, CreatorProfile, Testimonial};
+use App\Models\{Project, Service, CreatorProfile, Testimonial, Announcement};
 
 class LandingController extends Controller
 {
@@ -47,6 +47,13 @@ class LandingController extends Controller
             // Default SVG
         }
 
+        $announcement = null;
+        try {
+            $announcement = Announcement::active()->first();
+        } catch (\Throwable $e) {
+            // Default null
+        }
+
         return view('welcome', [
             'locale'       => $locale,
             'strings'      => $strings,
@@ -55,6 +62,7 @@ class LandingController extends Controller
             'testimonials' => $testimonials,
             'team'         => $team,
             'lanyardImage' => $lanyardImage,
+            'announcement' => $announcement,
         ]);
     }
 
@@ -77,7 +85,7 @@ class LandingController extends Controller
                 'hero' => [
                     'eyebrow'          => 'Videography, Designer, and Web Developer',
                     'tagline'          => 'VIDEOGRAPHY • DESIGNER • WEB DEVELOPER',
-                    'subtitle'         => 'An integrated creative and technical craft by Mochammad Muiz Afdloly focused on: videography (cinematic & podcasts); design (UI/UX, illustrations, posters); and web development (Laravel, Vue, PHP, JS).',
+                    'subtitle'         => 'MMA Production is a creative space focused on videography, graphic design, and web development. Transforming ideas into creative, innovative, and impactful visual works and digital solutions.',
                     'cta_works'        => 'EXPLORE WORKS',
                     'cta_contact'      => 'START A PROJECT',
                     'core_focus_label' => 'Core Capabilities',
@@ -142,7 +150,7 @@ class LandingController extends Controller
                     'subtitle'      => 'Have a project in cinematic video, podcast recording, UI/UX, illustration, posters, or web development (Laravel & Vue)? Fill out the brief below or get in touch directly via WhatsApp or email.',
                     'email_label'   => 'Direct Email',
                     'wa_label'      => 'Instant Chat (WhatsApp)',
-                    'wa_link_text'  => '+62 812-3456-7890 (Chat via WhatsApp)',
+                    'wa_link_text'  => '+62 851 7442 1182 (Chat via WhatsApp)',
                     'hub_label'     => 'Creative Hub',
                     'hub_val'       => 'Probolinggo, East Java, Indonesia',
                     'hours_label'   => 'Response Time',
@@ -170,7 +178,7 @@ class LandingController extends Controller
                     'bio'           => 'Cinematic video & podcast, UI/UX & poster illustration, and modern web development (Laravel, Vue, PHP, JS) by Mochammad Muiz Afdloly.',
                     'hub'           => 'Creative Hub: Probolinggo, East Java, Indonesia',
                     'nav_title'     => 'Navigation',
-                    'nav_top'       => 'Top // Overview',
+                    'nav_top'       => 'Overview',
                     'nav_works'     => 'Selected Works',
                     'nav_services'  => 'Core Capabilities',
                     'nav_director'  => 'About Creator',
@@ -197,7 +205,7 @@ class LandingController extends Controller
             'hero' => [
                 'eyebrow'          => 'Videography, Designer, dan Web Developer',
                 'tagline'          => 'VIDEOGRAPHY • DESIGNER • WEB DEVELOPER',
-                'subtitle'         => 'Kombinasi karya visual dan teknologi digital oleh Mochammad Muiz Afdloly berfokus pada: videography (cinematic & podcast); designer (UI/UX, ilustrasi, poster); serta web developer (Laravel, Vue, PHP, JS).',
+                'subtitle'         => 'MMA Production adalah ruang kreatif yang berfokus pada videografi, desain grafis, dan pengembangan web. Mengubah ide menjadi karya visual dan solusi digital yang kreatif, inovatif, dan bermakna.',
                 'cta_works'        => 'JELAJAHI KARYA',
                 'cta_contact'      => 'KONSULTASI PROYEK',
                 'core_focus_label' => 'Keahlian Inti',
@@ -262,7 +270,7 @@ class LandingController extends Controller
                 'subtitle'      => 'Punya proyek video cinematic, rekaman podcast, desain UI/UX, ilustrasi, poster, atau pembuatan website (Laravel & Vue)? Sampaikan kebutuhan Anda atau hubungi langsung via WhatsApp maupun email.',
                 'email_label'   => 'Email Resmi',
                 'wa_label'      => 'Kontak Instan (WhatsApp)',
-                'wa_link_text'  => '+62 812-3456-7890 (Chat via WhatsApp)',
+                'wa_link_text'  => '+62 851 7442 1182 (Chat via WhatsApp)',
                 'hub_label'     => 'Basis Kreatif',
                 'hub_val'       => 'Probolinggo, Jawa Timur, Indonesia',
                 'hours_label'   => 'Waktu Respons',
@@ -290,7 +298,7 @@ class LandingController extends Controller
                 'bio'           => 'Video cinematic & podcast, desain UI/UX & ilustrasi poster, serta web development modern (Laravel, Vue, PHP, JS) oleh Mochammad Muiz Afdloly.',
                 'hub'           => 'Basis Kreatif: Probolinggo, Jawa Timur, Indonesia',
                 'nav_title'     => 'Navigasi',
-                'nav_top'       => 'Kembali ke Atas',
+                'nav_top'       => 'Beranda',
                 'nav_works'     => 'Karya Pilihan',
                 'nav_services'  => 'Pilar Keahlian',
                 'nav_director'  => 'Profil Kreator',
@@ -309,17 +317,19 @@ class LandingController extends Controller
     private function getPortfolioData(string $locale): array
     {
         try {
-            $dbProjects = Project::orderBy('order', 'asc')->orderBy('id', 'asc')->get();
+            $dbProjects = Project::where('status', 'published')->orderBy('order', 'asc')->orderBy('id', 'asc')->get();
             $items = [];
+            $translator = ($locale === 'en') ? app(\App\Services\AutoTranslationService::class) : null;
+
             foreach ($dbProjects as $p) {
                 $items[] = [
                     'id'          => 'proj-' . $p->id,
-                    'title'       => $p->title,
+                    'title'       => $translator ? $translator->translate($p->title, 'en', 'id') : $p->title,
                     'category'    => $p->category,
-                    'tag'         => $p->tag ?? $p->category,
+                    'tag'         => $translator ? $translator->translate($p->tag ?? $p->category, 'en', 'id') : ($p->tag ?? $p->category),
                     'year'        => $p->year,
-                    'specs'       => $p->specs ?? '',
-                    'description' => $p->description ?? '',
+                    'specs'       => $translator ? $translator->translate($p->specs ?? '', 'en', 'id') : ($p->specs ?? ''),
+                    'description' => $translator ? $translator->translate($p->description ?? '', 'en', 'id') : ($p->description ?? ''),
                     'image'       => $p->image ?: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200',
                     'span'        => $p->span ?? 'col-span-1 md:col-span-1',
                     'aspect'      => $p->aspect ?? 'aspect-[4/3]',
@@ -489,15 +499,17 @@ class LandingController extends Controller
     private function getServicesData(string $locale): array
     {
         try {
-            $dbServices = Service::orderBy('order', 'asc')->orderBy('id', 'asc')->get();
+            $dbServices = Service::where('status', 'published')->orderBy('order', 'asc')->orderBy('id', 'asc')->get();
             $items = [];
+            $translator = ($locale === 'en') ? app(\App\Services\AutoTranslationService::class) : null;
+
             foreach ($dbServices as $s) {
                 $items[] = [
                     'number'       => $s->number,
-                    'title'        => $s->title,
-                    'tagline'      => $s->tagline ?? '',
-                    'description'  => $s->description,
-                    'deliverables' => is_array($s->deliverables) ? $s->deliverables : [],
+                    'title'        => $translator ? $translator->translate($s->title, 'en', 'id') : $s->title,
+                    'tagline'      => $translator ? $translator->translate($s->tagline ?? '', 'en', 'id') : ($s->tagline ?? ''),
+                    'description'  => $translator ? $translator->translate($s->description, 'en', 'id') : $s->description,
+                    'deliverables' => $translator ? $translator->translateArray(is_array($s->deliverables) ? $s->deliverables : [], 'en', 'id') : (is_array($s->deliverables) ? $s->deliverables : []),
                 ];
             }
             return $items;
@@ -592,14 +604,16 @@ class LandingController extends Controller
     private function getTestimonialData(string $locale): array
     {
         try {
-            $dbTestimonials = Testimonial::orderBy('order', 'asc')->orderBy('id', 'asc')->get();
+            $dbTestimonials = Testimonial::where('status', 'published')->orderBy('order', 'asc')->orderBy('id', 'asc')->get();
             $items = [];
+            $translator = ($locale === 'en') ? app(\App\Services\AutoTranslationService::class) : null;
+
             foreach ($dbTestimonials as $t) {
                 $items[] = [
                     'name'    => $t->name,
-                    'role'    => $t->role ?? '',
-                    'project' => $t->project ?? '',
-                    'quote'   => $t->quote,
+                    'role'    => $translator ? $translator->translate($t->role ?? '', 'en', 'id') : ($t->role ?? ''),
+                    'project' => $translator ? $translator->translate($t->project ?? '', 'en', 'id') : ($t->project ?? ''),
+                    'quote'   => $translator ? $translator->translate($t->quote, 'en', 'id') : $t->quote,
                 ];
             }
             return $items;
@@ -660,15 +674,17 @@ class LandingController extends Controller
         try {
             $creator = CreatorProfile::first();
             if ($creator) {
+                $translator = ($locale === 'en') ? app(\App\Services\AutoTranslationService::class) : null;
+
                 return [
                     [
                         'name'        => $creator->name,
-                        'role'        => $creator->role,
-                        'headline'    => $creator->headline ?? '',
-                        'bio'         => $creator->bio,
+                        'role'        => $translator ? $translator->translate($creator->role, 'en', 'id') : $creator->role,
+                        'headline'    => $translator ? $translator->translate($creator->headline ?? '', 'en', 'id') : ($creator->headline ?? ''),
+                        'bio'         => $translator ? $translator->translate($creator->bio, 'en', 'id') : $creator->bio,
                         'image'       => $creator->image ?: 'https://6a4a60231e75414caa98f25d.imgix.net/sandbox/muiz.jpeg',
-                        'disciplines' => is_array($creator->disciplines) ? $creator->disciplines : [],
-                        'stats'       => is_array($creator->stats) ? $creator->stats : [],
+                        'disciplines' => $translator ? $translator->translateArray(is_array($creator->disciplines) ? $creator->disciplines : [], 'en', 'id') : (is_array($creator->disciplines) ? $creator->disciplines : []),
+                        'stats'       => $translator ? $translator->translateStats(is_array($creator->stats) ? $creator->stats : [], 'en', 'id') : (is_array($creator->stats) ? $creator->stats : []),
                     ]
                 ];
             }

@@ -117,7 +117,9 @@
                         {{ $ctaInquire }}
                     </a>
                     <a 
-                        href="mailto:muiz1182.business@gmail.com" 
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=muiz1182.business@gmail.com" 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
                         class="min-h-[44px] inline-flex items-center justify-center border border-[#1F1F24] hover:border-white text-neutral-300 hover:text-white text-xs font-bold uppercase tracking-widest px-6 py-3 transition-colors duration-200"
                     >
                         {{ $ctaEmail }}

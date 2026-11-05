@@ -20,4 +20,7 @@
     <!-- 06. Contact & Commission Inquiries -->
     <x-sections.contact-form :strings="$strings['contact'] ?? []" />
 
+    <!-- 07. Modal Pengumuman Popup Tengah Layar -->
+    <x-announcement-modal :announcement="$announcement ?? null" />
+
 </x-layouts.app>

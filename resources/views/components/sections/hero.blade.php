@@ -11,7 +11,7 @@
     $isId = app()->getLocale() === 'id';
     $eyebrow = $strings['eyebrow'] ?? ($isId ? 'Videography, Designer, dan Web Developer' : 'Videography, Designer, and Web Developer');
     $tagline = $strings['tagline'] ?? 'VIDEOGRAPHY • DESIGNER • WEB DEVELOPER';
-    $desc = $subtitle ?? ($strings['subtitle'] ?? ($isId ? 'Kombinasi karya visual dan teknologi digital oleh Mochammad Muiz Afdloly berfokus pada: videography (cinematic & podcast); designer (UI/UX, ilustrasi, poster); serta web developer (Laravel, Vue, PHP, JS).' : 'An integrated creative and technical craft by Mochammad Muiz Afdloly focused on: videography (cinematic & podcasts); design (UI/UX, illustrations, posters); and web development (Laravel, Vue, PHP, JS).'));
+    $desc = !empty($subtitle) ? $subtitle : ($strings['subtitle'] ?? ($isId ? 'MMA Production adalah ruang kreatif yang berfokus pada videografi, desain grafis, dan pengembangan web. Mengubah ide menjadi karya visual dan solusi digital yang kreatif, inovatif, dan bermakna.' : 'MMA Production is a creative space focused on videography, graphic design, and web development. Transforming ideas into creative, innovative, and impactful visual works and digital solutions.'));
     $cta1 = $ctaLabel ?? ($strings['cta_works'] ?? ($isId ? 'JELAJAHI KARYA' : 'EXPLORE WORKS'));
     $cta2 = $secondaryCtaLabel ?? ($strings['cta_contact'] ?? ($isId ? 'MULAI PROYEK' : 'START A PROJECT'));
     $coreFocusLabel = $strings['core_focus_label'] ?? ($isId ? 'Keahlian Inti' : 'Core Capabilities');

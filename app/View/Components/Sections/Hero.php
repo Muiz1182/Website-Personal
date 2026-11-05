@@ -13,8 +13,8 @@ class Hero extends Component
      */
     public function __construct(
         public string $title = 'MMA PRODUCTION',
-        public string $subtitle = 'High-octane Visual engineering for the world\'s most ambitious brands.',
-        public string $ctaLabel = 'SEE OUR WORK'
+        public ?string $subtitle = null,
+        public ?string $ctaLabel = null
     ) {}
 
     /**

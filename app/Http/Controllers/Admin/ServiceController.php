@@ -37,6 +37,7 @@ class ServiceController extends Controller
             'description'  => ['required', 'string'],
             'deliverables' => ['nullable', 'string'],
             'order'        => ['nullable', 'integer'],
+            'status'       => ['nullable', 'string', 'in:published,draft'],
         ]);
 
         $deliverablesArray = [];
@@ -47,14 +48,27 @@ class ServiceController extends Controller
             ));
         }
 
-        Service::create([
+        $service = Service::create([
             'number'       => $validated['number'],
             'title'        => $validated['title'],
             'tagline'      => $validated['tagline'] ?? null,
             'description'  => $validated['description'],
             'deliverables' => $deliverablesArray,
             'order'        => $validated['order'] ?? 0,
+            'status'       => $validated['status'] ?? 'published',
         ]);
+
+        try {
+            $translator = app(\App\Services\AutoTranslationService::class);
+            $translator->translate($service->title);
+            $translator->translate($service->tagline);
+            $translator->translate($service->description);
+            if (is_array($service->deliverables)) {
+                foreach ($service->deliverables as $d) {
+                    $translator->translate($d);
+                }
+            }
+        } catch (\Throwable $e) {}
 
         return redirect()->route('admin.services.index')->with('status', 'Pilar keahlian berhasil ditambahkan.');
     }
@@ -79,6 +93,7 @@ class ServiceController extends Controller
             'description'  => ['required', 'string'],
             'deliverables' => ['nullable', 'string'],
             'order'        => ['nullable', 'integer'],
+            'status'       => ['nullable', 'string', 'in:published,draft'],
         ]);
 
         $deliverablesArray = [];
@@ -96,7 +111,20 @@ class ServiceController extends Controller
             'description'  => $validated['description'],
             'deliverables' => $deliverablesArray,
             'order'        => $validated['order'] ?? 0,
+            'status'       => $validated['status'] ?? 'published',
         ]);
+
+        try {
+            $translator = app(\App\Services\AutoTranslationService::class);
+            $translator->translate($service->title);
+            $translator->translate($service->tagline);
+            $translator->translate($service->description);
+            if (is_array($service->deliverables)) {
+                foreach ($service->deliverables as $d) {
+                    $translator->translate($d);
+                }
+            }
+        } catch (\Throwable $e) {}
 
         return redirect()->route('admin.services.index')->with('status', 'Pilar keahlian berhasil diperbarui.');
     }

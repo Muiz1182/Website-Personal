@@ -29,9 +29,20 @@
                 <div>
                     <div class="flex items-center justify-between border-b border-[#1F1F24] pb-4 mb-4">
                         <span class="font-mono text-xl font-black text-[#FF5722]">{{ $service->number }}</span>
-                        <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 bg-[#151518] text-neutral-400 border border-[#1F1F24]">
-                            Urutan: {{ $service->order }}
-                        </span>
+                        <div class="flex items-center space-x-2">
+                            @if ($service->status === 'draft')
+                                <span class="inline-flex items-center px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-amber-500/10 text-amber-400 border border-amber-500/30">
+                                    Draft
+                                </span>
+                            @else
+                                <span class="inline-flex items-center px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
+                                    Publish
+                                </span>
+                            @endif
+                            <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 bg-[#151518] text-neutral-400 border border-[#1F1F24]">
+                                Urutan: {{ $service->order }}
+                            </span>
+                        </div>
                     </div>
 
                     <h2 class="text-base font-bold text-white mb-2 leading-snug">{{ $service->title }}</h2>
