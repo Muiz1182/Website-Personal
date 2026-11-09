@@ -59,7 +59,7 @@
             </div>
             
             <div class="flex items-center pl-2">
-                <a href="#contact" class="inline-flex items-center justify-center bg-[#FF5722] hover:bg-[#F4511E] text-white text-xs font-bold uppercase tracking-widest px-5 py-3 transition-colors duration-200 focus-visible:outline-none">
+                <a href="#contact" class="inline-flex items-center justify-center bg-[#FF5722] hover:bg-[#F4511E] text-white text-xs font-bold uppercase tracking-widest px-5 py-3 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5722] focus-visible:ring-offset-2 focus-visible:ring-offset-[#070707]">
                     {{ $strings['start_project'] ?? ($isId ? 'Mulai Proyek' : 'Start Project') }}
                 </a>
             </div>
@@ -67,18 +67,20 @@
 
         <!-- Mobile Menu Toggle & Switcher -->
         <div class="md:hidden flex items-center space-x-3">
-            <!-- Mobile Language Switcher -->
-            <div class="flex items-center bg-[#151518] border border-[#1F1F24] p-0.5 text-[10px] font-bold tracking-wider uppercase">
+            <!-- Mobile Language Switcher (Enhanced touch targets 40px min) -->
+            <div class="flex items-center bg-[#151518] border border-[#1F1F24] p-0.5 text-[11px] font-bold tracking-wider uppercase">
                 <a 
                     href="{{ route('lang.switch', 'id') }}" 
-                    class="px-2 py-1 transition-colors {{ $isId ? 'bg-[#FF5722] text-white' : 'text-neutral-400' }}"
+                    class="min-w-[40px] min-h-[40px] inline-flex items-center justify-center px-2 py-1 transition-colors {{ $isId ? 'bg-[#FF5722] text-white' : 'text-neutral-400' }} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5722]"
+                    aria-label="Bahasa Indonesia"
                 >
                     ID
                 </a>
                 <span class="text-neutral-600">/</span>
                 <a 
                     href="{{ route('lang.switch', 'en') }}" 
-                    class="px-2 py-1 transition-colors {{ !$isId ? 'bg-[#FF5722] text-white' : 'text-neutral-400' }}"
+                    class="min-w-[40px] min-h-[40px] inline-flex items-center justify-center px-2 py-1 transition-colors {{ !$isId ? 'bg-[#FF5722] text-white' : 'text-neutral-400' }} focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5722]"
+                    aria-label="English"
                 >
                     EN
                 </a>
@@ -88,7 +90,7 @@
                 @click="open = !open" 
                 :aria-expanded="open.toString()"
                 aria-label="{{ $isId ? 'Buka tutup menu navigasi' : 'Toggle navigation menu' }}"
-                class="min-w-[44px] min-h-[44px] flex items-center justify-center text-white text-xs uppercase tracking-[0.2em] font-bold border border-[#1F1F24] px-4 py-2 hover:border-neutral-500 transition-colors focus-visible:outline-none"
+                class="min-w-[44px] min-h-[44px] flex items-center justify-center text-white text-xs uppercase tracking-[0.2em] font-bold border border-[#1F1F24] px-4 py-2 hover:border-neutral-500 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5722] focus-visible:ring-offset-2 focus-visible:ring-offset-[#070707]"
             >
                 <span x-text="open ? '{{ $isId ? 'Tutup' : 'Close' }}' : 'Menu'"></span>
             </button>

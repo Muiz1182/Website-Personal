@@ -4,6 +4,48 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="{{ app()->getLocale() === 'id' ? 'MMA PRODUCTION: Portofolio Mochammad Muiz Afdloly. Video Cinematic & Podcast, Desain UI/UX & Poster/Ilustrasi, serta Web Developer Laravel, Vue, PHP & JS.' : 'MMA PRODUCTION: Portfolio of Mochammad Muiz Afdloly. Cinematic Video & Podcasts, UI/UX & Poster/Illustration Design, and Web Development (Laravel, Vue, PHP, JS).' }}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ url()->current() }}">
+    
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="1xdGWL6q0-dWBjgDgqGk-pG6BbDyuKK60Yp-geRmGmg">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mmaproduction.com/">
+    <meta property="og:title" content="MMA PRODUCTION - Mochammad Muiz Afdloly">
+    <meta property="og:description" content="Kreator & Pengembang: Video Cinematic, Desain Grafis UI/UX, dan Web Development Full-Stack Laravel & Vue.js.">
+    <meta property="og:image" content="{{ asset('images/mma-logo.png') }}">
+    <meta property="og:site_name" content="MMA PRODUCTION">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://mmaproduction.com/">
+    <meta property="twitter:title" content="MMA PRODUCTION - Mochammad Muiz Afdloly">
+    <meta property="twitter:description" content="Kreator & Pengembang: Video Cinematic, Desain Grafis UI/UX, dan Web Development Full-Stack.">
+    <meta property="twitter:image" content="{{ asset('images/mma-logo.png') }}">
+
+    <!-- Schema.org JSON-LD for Google Search Rich Snippet -->
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@type": "ProfessionalService",
+      "name": "MMA PRODUCTION",
+      "alternateName": "Mochammad Muiz Afdloly Portfolio",
+      "url": "https://mmaproduction.com",
+      "logo": "https://mmaproduction.com/images/mma-logo.png",
+      "description": "Studio kreatif dan pengembang teknologi: Videografi sinematik & podcast, desain grafis UI/UX & ilustrasi, dan web development Laravel & Vue.js.",
+      "founder": {
+        "@@type": "Person",
+        "name": "Mochammad Muiz Afdloly",
+        "jobTitle": "Director, Designer, Web Developer"
+      },
+      "sameAs": [
+        "https://github.com/Muiz1182",
+        "https://www.instagram.com"
+      ]
+    }
+    </script>
     <title>{{ $title ?? 'MMA PRODUCTION' }}</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">

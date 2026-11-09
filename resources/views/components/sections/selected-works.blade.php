@@ -51,7 +51,7 @@
                 <button 
                     @click="filterProjects('All')" 
                     :class="activeCategory === 'All' ? 'bg-[#FF5722] text-white' : 'bg-[#0E0E10] text-neutral-400 hover:text-white border border-[#1F1F24]'"
-                    class="min-h-[44px] px-5 py-2 transition-colors duration-200 focus-visible:outline-none"
+                    class="min-h-[44px] px-5 py-2 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5722] focus-visible:ring-offset-2 focus-visible:ring-offset-[#070707]"
                     role="tab"
                     :aria-selected="(activeCategory === 'All').toString()"
                 >
@@ -60,7 +60,7 @@
                 <button 
                     @click="filterProjects('Videography')" 
                     :class="activeCategory === 'Videography' ? 'bg-[#FF5722] text-white' : 'bg-[#0E0E10] text-neutral-400 hover:text-white border border-[#1F1F24]'"
-                    class="min-h-[44px] px-5 py-2 transition-colors duration-200 focus-visible:outline-none"
+                    class="min-h-[44px] px-5 py-2 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5722] focus-visible:ring-offset-2 focus-visible:ring-offset-[#070707]"
                     role="tab"
                     :aria-selected="(activeCategory === 'Videography').toString()"
                 >
@@ -69,7 +69,7 @@
                 <button 
                     @click="filterProjects('Design')" 
                     :class="activeCategory === 'Design' ? 'bg-[#FF5722] text-white' : 'bg-[#0E0E10] text-neutral-400 hover:text-white border border-[#1F1F24]'"
-                    class="min-h-[44px] px-5 py-2 transition-colors duration-200 focus-visible:outline-none"
+                    class="min-h-[44px] px-5 py-2 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5722] focus-visible:ring-offset-2 focus-visible:ring-offset-[#070707]"
                     role="tab"
                     :aria-selected="(activeCategory === 'Design').toString()"
                 >
@@ -78,7 +78,7 @@
                 <button 
                     @click="filterProjects('Web Developer')" 
                     :class="activeCategory === 'Web Developer' ? 'bg-[#FF5722] text-white' : 'bg-[#0E0E10] text-neutral-400 hover:text-white border border-[#1F1F24]'"
-                    class="min-h-[44px] px-5 py-2 transition-colors duration-200 focus-visible:outline-none"
+                    class="min-h-[44px] px-5 py-2 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5722] focus-visible:ring-offset-2 focus-visible:ring-offset-[#070707]"
                     role="tab"
                     :aria-selected="(activeCategory === 'Web Developer').toString()"
                 >
@@ -102,7 +102,7 @@
                     tabindex="0"
                     role="button"
                     :aria-label="'View details for ' + project.title"
-                    class="group relative bg-[#0E0E10] border border-[#1F1F24] overflow-hidden cursor-pointer hover:border-[#FF5722]/60 transition-all duration-300 focus-visible:outline-none"
+                    class="group relative bg-[#0E0E10] border border-[#1F1F24] overflow-hidden cursor-pointer hover:border-[#FF5722]/60 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5722] focus-visible:ring-offset-2 focus-visible:ring-offset-[#070707]"
                 >
                     <!-- Visual Container with Aspect Ratio -->
                     <div :class="project.aspect || 'aspect-[16/9]'" class="relative w-full overflow-hidden bg-[#151518]">

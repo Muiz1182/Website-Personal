@@ -24,14 +24,14 @@ Route::get('/lang/{locale}', function (string $locale) {
     return redirect()->back();
 })->name('lang.switch');
 
-// Form pengiriman kontak
-Route::post('/contact', [ContactController::class, 'submit'])->middleware('throttle:10,1')->name('contact.submit');
+// Form pengiriman kontak (Rate limited: maks 5 pengiriman per menit)
+Route::post('/contact', [ContactController::class, 'submit'])->middleware('throttle:5,1')->name('contact.submit');
 
-// Otentikasi Admin & Gerbang Keamanan
+// Otentikasi Admin & Gerbang Keamanan (Rate limited untuk cegah brute force)
 Route::get('/admin/login', [AuthController::class, 'loginForm'])->name('admin.login');
 Route::get('/login', fn() => redirect()->route('admin.login'))->name('login');
 Route::post('/admin/gate-verify', [AuthController::class, 'verifyGate'])->middleware('throttle:5,1')->name('admin.gate.verify');
-Route::post('/admin/login', [AuthController::class, 'login'])->name('admin.login.submit');
+Route::post('/admin/login', [AuthController::class, 'login'])->middleware('throttle:5,1')->name('admin.login.submit');
 Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.logout');
 
 // Panel Admin (Terproteksi Autentikasi)

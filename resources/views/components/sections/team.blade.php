@@ -112,7 +112,7 @@
                 <div class="pt-4 flex flex-wrap items-center gap-4">
                     <a 
                         href="#contact" 
-                        class="min-h-[44px] inline-flex items-center justify-center bg-[#FF5722] hover:bg-[#F4511E] text-white text-xs font-bold uppercase tracking-widest px-8 py-3 transition-colors duration-200"
+                        class="min-h-[48px] inline-flex items-center justify-center bg-[#FF5722] hover:bg-[#F4511E] text-white text-xs font-bold uppercase tracking-widest px-8 py-3 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5722] focus-visible:ring-offset-2 focus-visible:ring-offset-[#070707]"
                     >
                         {{ $ctaInquire }}
                     </a>
@@ -120,7 +120,7 @@
                         href="https://mail.google.com/mail/?view=cm&fs=1&to=muiz1182.business@gmail.com" 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        class="min-h-[44px] inline-flex items-center justify-center border border-[#1F1F24] hover:border-white text-neutral-300 hover:text-white text-xs font-bold uppercase tracking-widest px-6 py-3 transition-colors duration-200"
+                        class="min-h-[48px] inline-flex items-center justify-center border border-[#1F1F24] hover:border-white text-neutral-300 hover:text-white text-xs font-bold uppercase tracking-widest px-6 py-3 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#070707]"
                     >
                         {{ $ctaEmail }}
                     </a>

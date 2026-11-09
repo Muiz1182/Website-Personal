@@ -7,7 +7,7 @@
     $isId = app()->getLocale() === 'id';
     $eyebrow = $strings['eyebrow'] ?? ($isId ? 'Kapabilitas • Keahlian Studio' : 'Capabilities • Studio Craft');
     $title = $strings['title'] ?? ($isId ? 'KEAHLIAN TEKNIS' : 'TECHNICAL MASTERY');
-    $subtitle = $strings['subtitle'] ?? ($isId ? 'Kami menggabungkan pilihan optik sinematik dengan ritme penyuntingan presisi frame-accurate. Setiap proyek mendapatkan rancangan alur kerja menyeluruh mulai dari praproduksi hingga tahap pewarnaan master.' : 'We combine deliberate optical choices with frame-accurate editorial rhythm. Every project receives dedicated workflow engineering from pre-production to master color finishing.');
+    $subtitle = $strings['subtitle'] ?? ($isId ? 'Memadukan pilihan optik sinematik dengan ritme penyuntingan presisi frame-accurate. Setiap proyek mendapatkan rancangan alur kerja menyeluruh mulai dari praproduksi hingga tahap pewarnaan master.' : 'Combining deliberate optical choices with frame-accurate editorial rhythm. Every project receives dedicated workflow engineering from pre-production to master color finishing.');
     $badge = $strings['badge'] ?? ($isId ? 'Disiplin Produksi' : 'Production Discipline');
     $deliverablesLabel = $strings['deliverables'] ?? ($isId ? 'Hasil & Berkas Akhir:' : 'Direct Deliverables:');
 @endphp

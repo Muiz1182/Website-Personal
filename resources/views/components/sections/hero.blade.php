@@ -62,14 +62,14 @@
                 <div class="flex flex-wrap items-center gap-4 pt-4">
                     <a 
                         href="#works" 
-                        class="min-h-[48px] inline-flex items-center justify-center bg-[#FF5722] hover:bg-[#F4511E] text-white px-8 py-3 text-xs font-bold uppercase tracking-widest transition-colors duration-200 focus-visible:outline-none"
+                        class="min-h-[48px] inline-flex items-center justify-center bg-[#FF5722] hover:bg-[#F4511E] text-white px-8 py-3 text-xs font-bold uppercase tracking-widest transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5722] focus-visible:ring-offset-2 focus-visible:ring-offset-[#070707]"
                     >
                         {{ $cta1 }}
                     </a>
                     
                     <a 
                         href="#contact" 
-                        class="min-h-[48px] inline-flex items-center justify-center border border-[#1F1F24] hover:border-white text-white px-8 py-3 text-xs font-bold uppercase tracking-widest transition-colors duration-200 focus-visible:outline-none"
+                        class="min-h-[48px] inline-flex items-center justify-center border border-[#1F1F24] hover:border-white text-white px-8 py-3 text-xs font-bold uppercase tracking-widest transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#070707]"
                     >
                         {{ $cta2 }}
                     </a>
@@ -114,7 +114,7 @@
 
     <!-- Ticker Reel Strip -->
     <div class="mt-20 pt-8 border-t border-[#1F1F24] overflow-hidden whitespace-nowrap">
-        <div class="animate-marquee flex space-x-12 text-xs uppercase tracking-[0.3em] font-semibold text-neutral-400">
+        <div class="animate-marquee motion-reduce:animate-none flex space-x-12 text-xs uppercase tracking-[0.3em] font-semibold text-neutral-400">
             @foreach($ticker as $item)
                 <span>{{ $item }}</span>
                 <span class="text-[#FF5722]">&bull;</span>

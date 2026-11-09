@@ -217,7 +217,7 @@
 
                 <button 
                     type="submit" 
-                    class="w-full min-h-[50px] bg-[#FF5722] hover:bg-[#F4511E] text-white font-bold text-xs uppercase tracking-widest py-4 transition-colors duration-200 focus-visible:outline-none"
+                    class="w-full min-h-[50px] bg-[#FF5722] hover:bg-[#F4511E] text-white font-bold text-xs uppercase tracking-widest py-4 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#FF5722] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0E0E10]"
                 >
                     {{ $submitCta }}
                 </button>
