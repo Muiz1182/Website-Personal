@@ -67,10 +67,22 @@ class CreatorController extends Controller
         $imagePath = $creator->image;
 
         if ($request->filled('image_url')) {
+            if ($creator->image && str_starts_with($creator->image, '/uploads/creator/')) {
+                $oldPath = public_path(ltrim($creator->image, '/'));
+                if (file_exists($oldPath)) {
+                    @unlink($oldPath);
+                }
+            }
             $imagePath = $validated['image_url'];
         }
 
         if ($request->hasFile('image_file')) {
+            if ($creator->image && str_starts_with($creator->image, '/uploads/creator/')) {
+                $oldPath = public_path(ltrim($creator->image, '/'));
+                if (file_exists($oldPath)) {
+                    @unlink($oldPath);
+                }
+            }
             $file = $request->file('image_file');
             $filename = 'creator_' . time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads/creator'), $filename);
@@ -80,12 +92,30 @@ class CreatorController extends Controller
         $lanyardImagePath = $creator->lanyard_image;
 
         if ($request->boolean('reset_lanyard')) {
+            if ($creator->lanyard_image && str_starts_with($creator->lanyard_image, '/uploads/creator/')) {
+                $oldPath = public_path(ltrim($creator->lanyard_image, '/'));
+                if (file_exists($oldPath)) {
+                    @unlink($oldPath);
+                }
+            }
             $lanyardImagePath = null;
         } elseif ($request->filled('lanyard_image_url')) {
+            if ($creator->lanyard_image && str_starts_with($creator->lanyard_image, '/uploads/creator/')) {
+                $oldPath = public_path(ltrim($creator->lanyard_image, '/'));
+                if (file_exists($oldPath)) {
+                    @unlink($oldPath);
+                }
+            }
             $lanyardImagePath = $validated['lanyard_image_url'];
         }
 
         if ($request->hasFile('lanyard_image_file')) {
+            if ($creator->lanyard_image && str_starts_with($creator->lanyard_image, '/uploads/creator/')) {
+                $oldPath = public_path(ltrim($creator->lanyard_image, '/'));
+                if (file_exists($oldPath)) {
+                    @unlink($oldPath);
+                }
+            }
             $file = $request->file('lanyard_image_file');
             $filename = 'lanyard_' . time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads/creator'), $filename);

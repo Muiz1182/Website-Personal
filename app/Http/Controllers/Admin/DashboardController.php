@@ -27,5 +27,15 @@ class DashboardController extends Controller
 
         return view('admin.dashboard', compact('counts', 'recentProjects', 'creator'));
     }
+
+    /**
+     * Bersihkan berkas upload yang tidak lagi terhubung ke database.
+     */
+    public function cleanStorage()
+    {
+        \Illuminate\Support\Facades\Artisan::call('storage:clean-orphans');
+        $output = trim(\Illuminate\Support\Facades\Artisan::output());
+        return redirect()->back()->with('status', $output ?: 'Pembersihan berkas yatim selesai.');
+    }
 }
 

@@ -111,10 +111,24 @@ class ProjectController extends Controller
         $imagePath = $project->image;
 
         if ($request->filled('image_url')) {
+            // Hapus gambar lama lokal jika diganti dengan URL eksternal
+            if ($project->image && str_starts_with($project->image, '/uploads/projects/')) {
+                $oldPath = public_path(ltrim($project->image, '/'));
+                if (file_exists($oldPath)) {
+                    @unlink($oldPath);
+                }
+            }
             $imagePath = $validated['image_url'];
         }
 
         if ($request->hasFile('image_file')) {
+            // Hapus gambar lama lokal dari storage VPS agar tidak menumpuk
+            if ($project->image && str_starts_with($project->image, '/uploads/projects/')) {
+                $oldPath = public_path(ltrim($project->image, '/'));
+                if (file_exists($oldPath)) {
+                    @unlink($oldPath);
+                }
+            }
             $file = $request->file('image_file');
             $filename = time() . '_' . Str::slug($validated['title']) . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('uploads/projects'), $filename);

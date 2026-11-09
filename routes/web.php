@@ -37,6 +37,7 @@ Route::post('/admin/logout', [AuthController::class, 'logout'])->name('admin.log
 // Panel Admin (Terproteksi Autentikasi)
 Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/', [DashboardController::class, 'index'])->name('admin.dashboard');
+    Route::post('storage/clean', [DashboardController::class, 'cleanStorage'])->name('admin.storage.clean');
 
     // CRUD Karya (Projects)
     Route::resource('projects', ProjectController::class)->names('admin.projects');
